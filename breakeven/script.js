@@ -1,0 +1,1 @@
+function calc(){let profit=+a.value||0;res.innerText='$'+profit.toFixed(2);}

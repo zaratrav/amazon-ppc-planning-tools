@@ -1,0 +1,1 @@
+function calc(){let daily=+a.value||0;let days=+b.value||0;res.innerText='$'+(daily*days).toFixed(2);}

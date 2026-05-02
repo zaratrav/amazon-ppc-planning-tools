@@ -1,0 +1,1 @@
+function calc(){let spend=+a.value||0;let clicks=+b.value||1;res.innerText='$'+(spend/clicks).toFixed(2);}

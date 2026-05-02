@@ -1,0 +1,1 @@
+function calc(){let clicks=+a.value||0;let imp=+b.value||1;res.innerText=((clicks/imp)*100).toFixed(2)+'%';}

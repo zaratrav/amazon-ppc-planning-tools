@@ -1,0 +1,1 @@
+function calc(){let imp=+a.value||0;let ctr=+b.value||0;let conv=+c.value||0;res.innerText=Math.round(imp*(ctr/100)*(conv/100))+' orders';}

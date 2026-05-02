@@ -1,0 +1,1 @@
+function calc(){let monthly=+a.value||0;res.innerText='$'+(monthly/30).toFixed(2);}

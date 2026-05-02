@@ -1,0 +1,1 @@
+function calc(){let margin=+a.value||0;let conv=+b.value||1;res.innerText='$'+(margin*(conv/100)).toFixed(2);}

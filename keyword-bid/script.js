@@ -1,0 +1,1 @@
+function calc(){let cpc=+a.value||0;let factor=+b.value||1;res.innerText='$'+(cpc*factor).toFixed(2);}
