@@ -1,40 +1,242 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="google-site-verification" content="uQVQvib9O00oQFIT-tXdnkU3Vh5VSFZw2b3WhCHTCns
-" />
-<title>Amazon PPC Planning Calculators | Budget, CPC, CTR & Conversion</title>
-<meta name="description" content="Plan Amazon PPC campaigns with budget, CPC, CTR, conversion rate and break-even calculators.">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="uQVQvib9O00oQFIT-tXdnkU3Vh5VSFZw2b3WhCHTCns" />
+    <title>Amazon PPC Budget & CPC Calculator | Free Planning Tools</title>
+    <meta name="description" content="Calculate Amazon PPC budgets, CPC bids, CTR, conversion rates and ROI. Plan campaigns with data-driven insights.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <h1>Amazon PPC Campaign Planning Tools</h1>
+            <p class="subtitle">Calculate budgets, CPC bids, and ROI before you launch your campaigns</p>
+        </div>
+    </header>
 
-<h1>Amazon PPC Campaign Planning Tools</h1>
+<main>
+    <section class="intro">
+        <div class="container">
+            <h2>Master Your Amazon PPC Spend</h2>
+            <p>
+                Launching Amazon PPC campaigns without proper planning is like flying blind. Most sellers waste 30-40% of their 
+                ad budget on inefficient targeting and poor bid strategies. With the right calculations, you can forecast performance, 
+                control costs, and maximize ROAS before spending a single dollar.
+            </p>
+            <p>
+                These calculators help you estimate daily budgets, set competitive CPC bids, calculate break-even points, 
+                and understand your campaign funnel from impressions to orders.
+            </p>
+        </div>
+    </section>
 
-<p>
-Launching and scaling Amazon PPC campaigns requires proper planning. These tools help you estimate budgets, CPC bids, conversion rates, and performance metrics.
-</p>
+    <section class="featured-tool">
+        <div class="container">
+            <h2>PPC Budget & CPC Calculator</h2>
+            <p>Your starting point: Calculate daily budget needs and optimal CPC bids based on your goals.</p>
+            
+            <div class="calculator">
+                <div class="calc-inputs">
+                    <div class="input-group">
+                        <label for="dailySales">Target Daily Sales ($)</label>
+                        <input type="number" id="dailySales" placeholder="500" min="0" value="500">
+                    </div>
+                    <div class="input-group">
+                        <label for="profitMargin">Profit Margin (%)</label>
+                        <input type="number" id="profitMargin" placeholder="30" min="0" max="100" value="30">
+                    </div>
+                    <div class="input-group">
+                        <label for="ctr">Expected CTR (%)</label>
+                        <input type="number" id="ctr" placeholder="0.5" min="0" step="0.1" value="0.5">
+                    </div>
+                    <div class="input-group">
+                        <label for="conversionRate">Conversion Rate (%)</label>
+                        <input type="number" id="conversionRate" placeholder="8" min="0" step="0.1" value="8">
+                    </div>
+                    <button class="calc-btn" onclick="calculatePPC()">Calculate</button>
+                </div>
 
-<p>
-Use these calculators to forecast performance, control ad spend, and optimize your campaigns before spending money.
-</p>
+                <div class="calc-results" id="ppcResults" style="display: none;">
+                    <div class="result-group">
+                        <div class="result-item">
+                            <span class="label">Daily Budget</span>
+                            <span class="value" id="dailyBudget">$0.00</span>
+                            <span class="hint">Max recommended spend</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Optimal CPC Bid</span>
+                            <span class="value" id="optimalCPC">$0.00</span>
+                            <span class="hint">Starting bid recommendation</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Required Impressions</span>
+                            <span class="value" id="impressions">0</span>
+                            <span class="hint">Monthly estimate</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">Break-Even ACoS</span>
+                            <span class="value" id="breakEvenAcos">0%</span>
+                            <span class="hint">Maximum acceptable ACoS</span>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<ul>
-<li><a href="budget/index.html">PPC Budget Calculator</a></li>
-<li><a href="cpc/index.html">CPC Bid Calculator</a></li>
-<li><a href="keyword-bid/index.html">Keyword Bid Estimator</a></li>
-<li><a href="max-cpc/index.html">Max CPC Calculator</a></li>
-<li><a href="daily-budget/index.html">Daily Budget Calculator</a></li>
-<li><a href="spend-ratio/index.html">Ad Spend to Sales Ratio</a></li>
-<li><a href="funnel/index.html">Impressions → Clicks → Orders</a></li>
-<li><a href="conversion/index.html">Conversion Rate Calculator</a></li>
-<li><a href="ctr/index.html">CTR Calculator</a></li>
-<li><a href="cpc-estimator/index.html">Cost Per Click Estimator</a></li>
-<li><a href="breakeven/index.html">Ad Spend Break-even</a></li>
-</ul>
-</div>
+                <div class="quick-presets">
+                    <p class="preset-label">Quick presets:</p>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="setPreset(100, 25, 0.3, 5)">New Seller</button>
+                        <button class="preset-btn" onclick="setPreset(500, 30, 0.5, 8)">Standard</button>
+                        <button class="preset-btn" onclick="setPreset(2000, 35, 0.8, 12)">Scaling</button>
+                        <button class="preset-btn" onclick="setPreset(5000, 40, 1.2, 15)">Enterprise</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tools-grid">
+        <div class="container">
+            <h2>Complete PPC Toolkit</h2>
+            
+            <h3>Budget & Spend Planning</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4><a href="budget/index.html">📊 PPC Budget Calculator</a></h4>
+                    <p>Determine daily/monthly budgets based on sales goals and profit margins.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="daily-budget/index.html">📅 Daily Budget Optimizer</a></h4>
+                    <p>Allocate budgets across campaigns for maximum efficiency.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="spend-ratio/index.html">💰 Ad Spend to Sales Ratio</a></h4>
+                    <p>Calculate ideal ACoS (Advertising Cost of Sale) targets.</p>
+                </div>
+            </div>
+
+            <h3>Bid & CPC Strategy</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4><a href="cpc/index.html">🎯 CPC Bid Calculator</a></h4>
+                    <p>Set optimal CPC bids based on conversion rates and margins.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="max-cpc/index.html">⬆️ Max CPC Calculator</a></h4>
+                    <p>Calculate maximum allowable CPC to maintain profitability.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="keyword-bid/index.html">🔑 Keyword Bid Estimator</a></h4>
+                    <p>Estimate competitive bids for specific keywords.</p>
+                </div>
+            </div>
+
+            <h3>Campaign Performance Metrics</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4><a href="ctr/index.html">👁️ CTR Calculator</a></h4>
+                    <p>Estimate click-through rates and forecast impressions needed.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="conversion/index.html">✅ Conversion Rate Calculator</a></h4>
+                    <p>Analyze conversion rates and identify optimization opportunities.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="funnel/index.html">🔄 Impressions → Clicks → Orders</a></h4>
+                    <p>Model your complete campaign funnel from impressions to sales.</p>
+                </div>
+            </div>
+
+            <h3>Break-Even & Profitability</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4><a href="breakeven/index.html">🎲 Break-Even Calculator</a></h4>
+                    <p>Find the point where ad spend equals profit contribution.</p>
+                </div>
+                <div class="card">
+                    <h4><a href="cpc-estimator/index.html">💡 Cost Per Click Estimator</a></h4>
+                    <p>Forecast realistic CPC based on category and competition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-practices">
+        <div class="container">
+            <h2>Amazon PPC Best Practices</h2>
+            
+            <h3>Budget Allocation Strategy</h3>
+            <p>
+                Most sellers allocate 10-30% of revenue to PPC. New sellers should start conservatively (5-10%) and scale as they prove profitability. 
+                Always set daily budgets based on profit margins, not just revenue goals. A $1,000 sale with 20% ACoS requires careful margin calculation.
+            </p>
+
+            <h3>Optimal CPC Bidding</h3>
+            <p>
+                Your CPC bid should be 1/3 to 1/2 of your profit per sale. If you make $30 profit per sale, bid $10-15 CPC. Start with keyword research data, 
+                then adjust based on actual performance. Category CPCs vary wildly: electronics average $1-3, supplements $0.50-1.50, luxury items $5-20+.
+            </p>
+
+            <h3>Campaign Funnel Optimization</h3>
+            <p>
+                Monitor your funnel at each stage: Impressions → Clicks (CTR) → Orders (Conversion Rate). A typical healthy funnel: 
+                0.5% CTR + 5-10% conversion = 0.025-0.05% final conversion. If your CTR is low, improve your ad copy and keywords. 
+                If conversion is low, fix your listing and pricing.
+            </p>
+
+            <h3>ACoS & Profitability</h3>
+            <p>
+                ACoS (Advertising Cost of Sale) tells you what percentage of revenue goes to ads. Break-even ACoS = (100% - profit margin). 
+                If you have 30% margin, your break-even ACoS is 70%. Target 20-30% ACoS for profitability. First-page rankings often justify 50%+ ACoS 
+                due to long-term organic benefits.
+            </p>
+
+            <h3>Testing & Scaling</h3>
+            <p>
+                Always test before scaling. Start with 5-10 keywords in Automatic campaigns. Track performance for 2 weeks minimum. 
+                Once you identify winners (ACoS under target), increase bids by 5-10%. Scale budget 20-30% monthly until you hit saturation or margin targets.
+            </p>
+        </div>
+    </section>
+
+    <section class="metrics-reference">
+        <div class="container">
+            <h2>Amazon PPC Benchmarks & Metrics</h2>
+            <div class="benchmark-table">
+                <div class="bench-row">
+                    <div class="bench-label">Average CTR</div>
+                    <div class="bench-value">0.3% - 0.8%</div>
+                    <div class="bench-note">Varies by product category</div>
+                </div>
+                <div class="bench-row">
+                    <div class="bench-label">Conversion Rate</div>
+                    <div class="bench-value">5% - 15%</div>
+                    <div class="bench-note">Healthy range; depends on listing quality</div>
+                </div>
+                <div class="bench-row">
+                    <div class="bench-label">Profitable ACoS</div>
+                    <div class="bench-value">20% - 40%</div>
+                    <div class="bench-note">Target for sustainable growth</div>
+                </div>
+                <div class="bench-row">
+                    <div class="bench-label">Average CPC</div>
+                    <div class="bench-value">$0.50 - $3.00</div>
+                    <div class="bench-note">Highly category-dependent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 Amazon PPC Tools. Calculate smarter, scale faster.</p>
+    </div>
+</footer>
+
+<script src="app.js"></script>
 
 </body>
 </html>
